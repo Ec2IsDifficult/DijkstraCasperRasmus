@@ -34,19 +34,21 @@ public class Graph {
         Map<Vertex, Vertex> PredecessorMap = new HashMap<>(); //denne skal opdateres heletiden
         Map<Vertex, Integer> timeMap = new HashMap<>();
         Map<Vertex, Integer> timeMapDisplay = new HashMap<>();
-        // initialize arrays
+        // Here we initialize the arrays we are going to use
         Vertex vertex;
-        for (Vertex v : Vertices) {
+        for (Vertex v : Vertices) { //O(v)
             timeMap.put(v, 1000);
             PredecessorMap.put(v, null);
         }
 
+        // here we set the source vertex,
         timeMap.put(source, 0);
 
-        for (int count = 0; count < Vertices.size(); count++) {
+        for (int count = 0; count < Vertices.size(); count++) { //O(v)
 
-            vertex = getmin1(timeMap);
-            for (int i = 0; i < vertex.getOutEdges().size(); i++) {
+            vertex = getmin1(timeMap); //o(v*v)
+            //System.out.println(vertex.getOutEdges().size());
+            for (int i = 0; i < vertex.getOutEdges().size(); i++) { //O(v*e)
 
                 if (vertex.getOutEdges().get(i).time + timeMap.get(vertex)
                         < timeMap.get(vertex.getOutEdges().get(i).getTovertex())) {
@@ -106,7 +108,7 @@ public class Graph {
         int value = 1000;
         Vertex vertex = null;
         //Her looper vi igennem hele distancemap og retriever den vertex som er kortest fra source vertex
-        for (Map.Entry<Vertex, Integer> entry : qmap.entrySet()) {
+        for (Map.Entry<Vertex, Integer> entry : qmap.entrySet()) { //o(v)
 
             if (entry.getValue() < value && entry.getValue() != -1) {
                 value = entry.getValue();
