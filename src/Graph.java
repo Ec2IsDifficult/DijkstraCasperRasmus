@@ -53,9 +53,6 @@ public class Graph {
                 if (vertex.getOutEdges().get(i).time + timeMap.get(vertex)
                         < timeMap.get(vertex.getOutEdges().get(i).getTovertex())) {
                     timeMap.put(vertex.getOutEdges().get(i).getTovertex(), vertex.getOutEdges().get(i).time + timeMap.get(vertex));
-                    System.out.println(vertex.getOutEdges().get(i).getFromvertex().Name + " " + vertex.getOutEdges().get(i).getTovertex().Name);
-                    System.out.println("Distancemap Values");
-                    System.out.println(timeMap.values());
                     PredecessorMap.put(vertex.getOutEdges().get(i).getTovertex(), vertex);
                 }
             }
@@ -88,9 +85,6 @@ public class Graph {
                 if (vertex.getOutEdges().get(i).distance + DistanceMap.get(vertex)
                         < DistanceMap.get(vertex.getOutEdges().get(i).getTovertex())) {
                     DistanceMap.put(vertex.getOutEdges().get(i).getTovertex(), vertex.getOutEdges().get(i).distance + DistanceMap.get(vertex));
-                    System.out.println(vertex.getOutEdges().get(i).getFromvertex().Name + " " + vertex.getOutEdges().get(i).getTovertex().Name);
-                    System.out.println("Distancemap Values");
-                    System.out.println(DistanceMap.values());
                     PredecessorMap.put(vertex.getOutEdges().get(i).getTovertex(), vertex);
                 }
             }

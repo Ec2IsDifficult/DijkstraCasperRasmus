@@ -26,6 +26,7 @@ public class GraphTests {
                 System.out.print("->");
         }
 
+        System.out.println(" ");
         Pair<Integer, Map<Vertex, Vertex>> results1=g.ShortestTime(source, zink);
         Vertex current1 =zink;
         ArrayList<Vertex> Path1= new ArrayList<>();
